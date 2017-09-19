@@ -1,0 +1,30 @@
+<article class="post-card {{post_class}}{{#unless feature_image}} no-image{{/unless}}">
+    {{#if feature_image}}
+        <a class="post-card-image-link" href="{{url}}">
+            <div class="post-card-image" style="background-image: url({{feature_image}})"></div>
+        </a>
+    {{/if}}
+    <div class="post-card-content">
+        <div class="post-card-content-link">
+            <header class="post-card-header">
+                {{#if primary_tag}}
+                    <a href="{{blog.url}}/tag/{{primary_tag.slug}}" class="post-card-tags">{{primary_tag.name}}</a>
+                {{/if}}
+                <h2 class="post-card-title"><a href="{{url}}">{{title}}</a></h2>
+            </header>
+            <section class="post-card-excerpt">
+                {{#if feature_image}}
+                <p>{{excerpt words="7"}}</p>
+                {{else}}
+                <p>{{excerpt words="20"}}</p>
+                {{/if}}
+            </section>
+        </div>
+        <footer class="post-card-meta">
+            {{#if author.profile_image}}
+                <img class="author-profile-image" src="{{author.profile_image}}" alt="{{author.name}}" />
+            {{/if}}
+            <span class="post-card-author">{{author}}</span>
+        </footer>
+    </div>
+</article>
