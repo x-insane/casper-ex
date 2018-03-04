@@ -7,9 +7,12 @@
     <div class="post-card-content">
         <div class="post-card-content-link">
             <header class="post-card-header">
-                {{#if primary_tag}}
-                    <a href="{{blog.url}}/tag/{{primary_tag.slug}}" class="post-card-tags">{{primary_tag.name}}</a>
-                {{/if}}
+                <span class="post-card-tags">
+                    {{#if primary_tag}}
+                        <a href="{{blog.url}}/tag/{{primary_tag.slug}}" style="color: #738a94">{{primary_tag.name}}</a>
+                    {{/if}}
+                    <span>@{{date format="YYYY/M/D"}}</span>
+                </span>
                 <h2 class="post-card-title"><a href="{{url}}">{{title}}</a></h2>
             </header>
             <section class="post-card-excerpt">
@@ -24,7 +27,7 @@
             {{#if author.profile_image}}
                 <img class="author-profile-image" src="{{author.profile_image}}" alt="{{author.name}}" />
             {{/if}}
-            <span class="post-card-author">{{author}}</span>
+            <span class="post-card-author">{{author}}</span></span>
         </footer>
     </div>
 </article>
