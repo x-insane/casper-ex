@@ -39,6 +39,12 @@ into the {body} of the default.hbs template --}}
                     {{content}}
                 </div>
 
+                {{#if comments}}
+                <section class="article-comments gh-canvas">
+                    {{comments}}
+                </section>
+                {{/if}}
+
             </section>
 
             {{!-- Email subscribe form at the bottom of the page --}}
@@ -65,33 +71,28 @@ into the {body} of the default.hbs template --}}
                 
             </footer>
 
-            {{!--
-
-            If you use Disqus comments, just uncomment this block.
-            The only thing you need to change is "test-apkdzgmqhj" - which
-            should be replaced with your own Disqus site-id.
-
-            <section class="post-full-comments">
-                <div id="disqus_thread"></div>
-                <script>
-                    var disqus_config = function () {
-                        this.page.url = '{{url absolute="true"}}';
-                        this.page.identifier = 'ghost-{{comment_id}}';
-                    };
-                    (function() {
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://test-apkdzgmqhj.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                    })();
-                </script>
-            </section>
-            --}}
-
         </article>
-
     </div>
 </main>
+
+{{!-- A signup call to action is displayed here, unless viewed as a logged-in member --}}
+{{#if @site.members_enabled}}
+{{#unless @member}}
+{{#unless @site.comments_enabled}}
+{{#if access}}
+    <section class="footer-cta outer">
+        <div class="inner">
+            {{#if @custom.email_signup_text}}<h2 class="footer-cta-title">{{@custom.email_signup_text}}</h2>{{/if}}
+            <a class="footer-cta-button" href="#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+{{/if}}
+{{/unless}}
+{{/unless}}
+{{/if}}
 
 {{!-- Links to Previous/Next posts --}}
 <aside class="read-next outer">
