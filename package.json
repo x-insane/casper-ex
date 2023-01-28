@@ -50,6 +50,11 @@
                 "type": "text",
                 "default": "Sign up for more like this.",
                 "group": "post"
+            },
+            "beian_id": {
+                "type": "text",
+                "default": "",
+                "group": "post"
             }
         }
     }
