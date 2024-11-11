@@ -55,6 +55,16 @@
                 "type": "text",
                 "default": "",
                 "group": "post"
+            },
+            "beian_mps_url": {
+                "type": "text",
+                "default": "",
+                "group": "post"
+            },
+            "beian_mps_id": {
+                "type": "text",
+                "default": "",
+                "group": "post"
             }
         }
     }
